@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		937E89DA1FD9ED6A00427D0A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 937E89D91FD9ED6A00427D0A /* .gitignore */; };
+		937E89DC1FD9EDAC00427D0A /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 937E89DB1FD9EDAC00427D0A /* Cartfile */; };
+		937E89E31FD9F0A400427D0A /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937E89E21FD9F0A400427D0A /* AppStore.swift */; };
 		93C738031FD9E90800E800AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C738021FD9E90800E800AC /* AppDelegate.swift */; };
 		93C738051FD9E90800E800AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C738041FD9E90800E800AC /* ViewController.swift */; };
 		93C738071FD9E90800E800AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93C738061FD9E90800E800AC /* Assets.xcassets */; };
 		93C7380A1FD9E90800E800AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93C738081FD9E90800E800AC /* Main.storyboard */; };
 		93C738161FD9E90800E800AC /* macosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C738151FD9E90800E800AC /* macosTests.swift */; };
 		93C738211FD9E90800E800AC /* macosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C738201FD9E90800E800AC /* macosUITests.swift */; };
-		93C7382F1FD9E9C100E800AC /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 93C7382E1FD9E9C100E800AC /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,7 +35,34 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		937E89E91FD9F1F000427D0A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		937E89EA1FD9F1FB00427D0A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		937E89D91FD9ED6A00427D0A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; name = .gitignore; path = ../../../.gitignore; sourceTree = "<group>"; };
+		937E89DB1FD9EDAC00427D0A /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Cartfile; path = ../../../Cartfile; sourceTree = "<group>"; };
+		937E89DE1FD9EE0300427D0A /* ReSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReSwift.framework; path = ../../../Carthage/Build/Mac/ReSwift.framework; sourceTree = "<group>"; };
+		937E89E21FD9F0A400427D0A /* AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
+		937E89E41FD9F19900427D0A /* ReSwift.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = ReSwift.framework.dSYM; path = ../../../Carthage/Build/Mac/ReSwift.framework.dSYM; sourceTree = "<group>"; };
 		93C737FF1FD9E90800E800AC /* macos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = macos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93C738021FD9E90800E800AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93C738041FD9E90800E800AC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,7 +76,6 @@
 		93C7381C1FD9E90800E800AC /* macosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = macosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		93C738201FD9E90800E800AC /* macosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macosUITests.swift; sourceTree = "<group>"; };
 		93C738221FD9E90800E800AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		93C7382E1FD9E9C100E800AC /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,14 +103,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		937E89DD1FD9EE0300427D0A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				937E89E41FD9F19900427D0A /* ReSwift.framework.dSYM */,
+				937E89DE1FD9EE0300427D0A /* ReSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		93C737F61FD9E90800E800AC = {
 			isa = PBXGroup;
 			children = (
-				93C7382E1FD9E9C100E800AC /* .gitignore */,
+				937E89DB1FD9EDAC00427D0A /* Cartfile */,
+				937E89D91FD9ED6A00427D0A /* .gitignore */,
 				93C738011FD9E90800E800AC /* macos */,
 				93C738141FD9E90800E800AC /* macosTests */,
 				93C7381F1FD9E90800E800AC /* macosUITests */,
 				93C738001FD9E90800E800AC /* Products */,
+				937E89DD1FD9EE0300427D0A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +144,7 @@
 				93C738081FD9E90800E800AC /* Main.storyboard */,
 				93C7380B1FD9E90800E800AC /* Info.plist */,
 				93C7380C1FD9E90800E800AC /* macos.entitlements */,
+				937E89E21FD9F0A400427D0A /* AppStore.swift */,
 			);
 			path = macos;
 			sourceTree = "<group>";
@@ -137,6 +177,8 @@
 				93C737FB1FD9E90800E800AC /* Sources */,
 				93C737FC1FD9E90800E800AC /* Frameworks */,
 				93C737FD1FD9E90800E800AC /* Resources */,
+				937E89E91FD9F1F000427D0A /* Embed Frameworks */,
+				937E89EA1FD9F1FB00427D0A /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -234,8 +276,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				937E89DA1FD9ED6A00427D0A /* .gitignore in Resources */,
 				93C738071FD9E90800E800AC /* Assets.xcassets in Resources */,
-				93C7382F1FD9E9C100E800AC /* .gitignore in Resources */,
+				937E89DC1FD9EDAC00427D0A /* Cartfile in Resources */,
 				93C7380A1FD9E90800E800AC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,6 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				937E89E31FD9F0A400427D0A /* AppStore.swift in Sources */,
 				93C738051FD9E90800E800AC /* ViewController.swift in Sources */,
 				93C738031FD9E90800E800AC /* AppDelegate.swift in Sources */,
 			);
@@ -343,6 +387,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = ../../../Carthage/Build/Mac;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -400,6 +445,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = ../../../Carthage/Build/Mac;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
