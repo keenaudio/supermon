@@ -1,14 +1,13 @@
 //
-//  macosUITests.swift
-//  macosUITests
+//  supermonUITests.swift
+//  supermonUITests
 //
 //  Created by Aaron Granick on 12/7/17.
-//  Copyright © 2017 Aaron Granick. All rights reserved.
 //
 
 import XCTest
 
-class macosUITests: XCTestCase {
+class supermonUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()

@@ -1,9 +1,8 @@
 //
 //  AppDelegate.swift
-//  macos
+//  supermon
 //
 //  Created by Aaron Granick on 12/7/17.
-//  Copyright © 2017 Aaron Granick. All rights reserved.
 //
 
 import Cocoa

@@ -1,15 +1,14 @@
 //
-//  macosTests.swift
-//  macosTests
+//  supermonTests.swift
+//  supermonTests
 //
 //  Created by Aaron Granick on 12/7/17.
-//  Copyright © 2017 Aaron Granick. All rights reserved.
 //
 
 import XCTest
-@testable import macos
+@testable import supermon
 
-class macosTests: XCTestCase {
+class supermonTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
