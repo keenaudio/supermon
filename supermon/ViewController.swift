@@ -1,4 +1,3 @@
-//
 //  ViewController.swift
 //  ndimon
 //
@@ -8,15 +7,29 @@
 
 import Cocoa
 import NDIKit
+import ReSwift
 
-class ViewController: NSViewController {
-    
+class ViewController: NSViewController, StoreSubscriber {
+    typealias StoreSubscriberStateType = AppState
+
     @IBOutlet weak var tableView: NSTableView!
     
     var sources: [NDISource]?
     let ndiWrapper: NDIWrapper! = NDIWrapper()
     let ndiFinder: NDIFinder = NDIFinder()
+   
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // subscribe to state changes
+        mainStore.subscribe(self)
+    }
     
+    func newState(state: AppState) {
+        // when the state changes, the UI is updated to reflect the current state
+        //counterLabel.text = "\(mainStore.state.counter)"
+    }
+
     func didFindSource(_src:NDISource?) {
         let src = _src!
         print("have a source: \(src.name), \(src.ip)")

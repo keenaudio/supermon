@@ -7,7 +7,8 @@
 
 import Foundation
 import ReSwift
+import NDIKit
 
 struct AppState: StateType {
-    var counter: Int = 0
+    var ndiSource: NDISource;
 }

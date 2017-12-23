@@ -19,7 +19,6 @@
 		93A54D711FDCFFBD00D6C6DE /* ReSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A54D701FDCFFBD00D6C6DE /* ReSwift.framework */; };
 		93A54D721FDD005000D6C6DE /* ReSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A54D701FDCFFBD00D6C6DE /* ReSwift.framework */; };
 		93A54D731FDD005000D6C6DE /* ReSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93A54D701FDCFFBD00D6C6DE /* ReSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		93A54D751FDD007D00D6C6DE /* libndi.3.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93A54D741FDD007D00D6C6DE /* libndi.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		93AEF2F11FDA03F800409A64 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AEF2F01FDA03F800409A64 /* AppState.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,7 +47,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				93A54D731FDD005000D6C6DE /* ReSwift.framework in Embed Frameworks */,
-				93A54D751FDD007D00D6C6DE /* libndi.3.dylib in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -82,9 +80,9 @@
 		93665FAF1FDA05CA00E5F0D0 /* ReSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReSwift.framework; path = ../../Carthage/Build/Mac/ReSwift.framework; sourceTree = "<group>"; };
 		93665FB21FDA07FC00E5F0D0 /* Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
 		93665FB51FDA083200E5F0D0 /* DefaultReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultReducer.swift; sourceTree = "<group>"; };
+		939612571FDD049A0099BB32 /* libndi.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libndi.3.dylib; sourceTree = "<group>"; };
 		93A54D6F1FDCFA9700D6C6DE /* NDIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NDIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93A54D701FDCFFBD00D6C6DE /* ReSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReSwift.framework; path = Carthage/Build/Mac/ReSwift.framework; sourceTree = "<group>"; };
-		93A54D741FDD007D00D6C6DE /* libndi.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libndi.3.dylib; path = "../NDIKit/NewTek NDI SDK/lib/x64/libndi.3.dylib"; sourceTree = "<group>"; };
 		93AEF2F01FDA03F800409A64 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -163,6 +161,7 @@
 		93665FAE1FDA05C900E5F0D0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				939612571FDD049A0099BB32 /* libndi.3.dylib */,
 				93A54D701FDCFFBD00D6C6DE /* ReSwift.framework */,
 				93A54D6F1FDCFA9700D6C6DE /* NDIKit.framework */,
 				93665FAF1FDA05CA00E5F0D0 /* ReSwift.framework */,
@@ -197,7 +196,6 @@
 		93FE36351FDA0158009BBA9E = {
 			isa = PBXGroup;
 			children = (
-				93A54D741FDD007D00D6C6DE /* libndi.3.dylib */,
 				935E35DC1FDA026A001926B7 /* supermon */,
 				935E35EF1FDA026A001926B7 /* supermonTests */,
 				935E35FA1FDA026A001926B7 /* supermonUITests */,
