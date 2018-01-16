@@ -10,5 +10,5 @@ import ReSwift
 import NDIKit
 
 struct AppState: StateType {
-    var ndiSource: NDISource;
+    var ndiSource: NDISource?;
 }

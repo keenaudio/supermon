@@ -12,13 +12,9 @@ import ReSwift
 // on the actions it receives
 func counterReducer(action: Action, state: AppState?) -> AppState {
     // if no state has been provided, create the default state
-    var state = state ?? AppState()
+    var state = state ?? AppState(ndiSource: nil)
     
     switch action {
-    case _ as CounterActionIncrease:
-        state.counter += 1
-    case _ as CounterActionDecrease:
-        state.counter -= 1
     default:
         break
     }

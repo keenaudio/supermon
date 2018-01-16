@@ -17,39 +17,64 @@ class ViewController: NSViewController, StoreSubscriber {
     var sources: [NDISource]?
     let ndiWrapper: NDIWrapper! = NDIWrapper()
     let ndiFinder: NDIFinder = NDIFinder()
-   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // subscribe to state changes
-        mainStore.subscribe(self)
-    }
+    private var timer: Timer?
     
     func newState(state: AppState) {
         // when the state changes, the UI is updated to reflect the current state
         //counterLabel.text = "\(mainStore.state.counter)"
     }
-
-    func didFindSource(_src:NDISource?) {
-        let src = _src!
-        print("have a source: \(src.name), \(src.ip)")
-        
-        sources?.append(src);
-        tableView.reloadData()
-        
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+     
+        // subscribe to state changes
+        mainStore.subscribe(self)
+
         tableView.delegate = self
         tableView.dataSource = self
         
         // Do any additional setup after loading the view.
         sources = [NDISource]()
-        ndiFinder.find(didFindSource);
+        //ndiFinder.find(didFindSource);
+        
+//        DispatchQueue.global(qos: .userInitiated).async { // 1
+//            //let overlayImage = self.faceOverlayImageFromImage(self.image)
+//            DispatchQueue.main.async { // 2
+//                print("oh hello");
+//                self.ndiFinder.find(self.didFindSource);// 3
+//            }
+//        }
+        
+//        let delayInSeconds = 5.0 // 1
+//        DispatchQueue.main.asyncAfter(deadline: .now() + delayInSeconds) { // 2
+//            self.ndiFinder.find(self.didFindSource);
+//        }
+        
+        
+        timer = Timer.scheduledTimer(timeInterval: 1,
+                             target: self,
+                             selector: #selector(self.onTimer),
+                             userInfo: nil,
+                             repeats: true)
+
     }
     
+    @objc func onTimer() {
+        // Code here
+        print("refresh data bro");
+        ndiFinder.find(didFindSource);
+        tableView.reloadData()
+
+    }
+
+    @objc func didFindSource(_src:NDISource?) {
+        let src = _src!
+        print("have a source: \(src.name), \(src.ip)")
+        
+        sources?.append(src);
+        
+    }
+
     override var representedObject: Any? {
         didSet {
             // Update the view, if already loaded.
@@ -95,15 +120,17 @@ extension ViewController: NSTableViewDelegate {
             text = item.name
             cellIdentifier = CellIdentifiers.NameCell
         } else if tableColumn == tableView.tableColumns[1] {
-            text = "NA"
+            text = item.ip
             cellIdentifier = CellIdentifiers.DetailseCell
         } else if tableColumn == tableView.tableColumns[2] {
             text = "?"
             cellIdentifier = CellIdentifiers.StatusCell
         }
         
+        //NSTableCellView *result = [tableView makeViewWithIdentifier:@NSUserInterfaceItemIdentifier(cellIdentifier) owner:self];
+        
         // 3
-        if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(cellIdentifier), owner: nil) as? NSTableCellView {
+        if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(cellIdentifier), owner: self) as? NSTableCellView {
             cell.textField?.stringValue = text
             cell.imageView?.image = image ?? nil
             return cell
