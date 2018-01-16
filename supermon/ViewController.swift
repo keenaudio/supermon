@@ -18,12 +18,24 @@ class ViewController: NSViewController, StoreSubscriber {
     let ndiWrapper: NDIWrapper! = NDIWrapper()
     let ndiFinder: NDIFinder = NDIFinder()
     private var timer: Timer?
+ 
+    func reloadTableView() {
+        let indexPaths:IndexSet = tableView.selectedRowIndexes
+        tableView.reloadData()
+        tableView.selectRowIndexes(indexPaths, byExtendingSelection: false)
+    }
     
     func newState(state: AppState) {
         // when the state changes, the UI is updated to reflect the current state
         //counterLabel.text = "\(mainStore.state.counter)"
     }
     
+    func refreshData() {
+        print("refresh data bro");
+        ndiFinder.find(didFindSource);
+        reloadTableView()
+
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
      
@@ -35,6 +47,7 @@ class ViewController: NSViewController, StoreSubscriber {
         
         // Do any additional setup after loading the view.
         sources = [NDISource]()
+        refreshData()
         //ndiFinder.find(didFindSource);
         
 //        DispatchQueue.global(qos: .userInitiated).async { // 1
@@ -62,15 +75,40 @@ class ViewController: NSViewController, StoreSubscriber {
     @objc func onTimer() {
         // Code here
         print("refresh data bro");
-        ndiFinder.find(didFindSource);
-        tableView.reloadData()
-
+        refreshData()
     }
 
     @objc func didFindSource(_src:NDISource?) {
+//        guard var srcs = sources else {
+//            return
+//        }
+//
         let src = _src!
+        var found: Int?  // <= will hold the index if it was found, or else will be nil
+
         print("have a source: \(src.name), \(src.ip)")
+        found = sources?.index(where: { $0.ip == src.ip })
+//        for i in (0...srcs.count) {
+//            if srcs[i].ip == src.ip {
+//                found = i
+//            }
+//        }
+
+        if (found != nil) {
+            print("removing duplicate: \(src.name)")
+            sources!.remove(at: found!);
+        }
+//
+//        if let index = sources!.index(of: "Peaches") {
+//            print("Found peaches at index \(index)")
+//        }
+//
         
+//        for x in sources! {
+//            if (x.ip == src.ip) {
+//                print("This one is already in the list: ", x.ip)
+//            }
+//        }
         sources?.append(src);
         
     }
@@ -98,6 +136,11 @@ extension ViewController: NSTableViewDelegate {
         static let NameCell = "NameCellID"
         static let DetailseCell = "DetailsCellID"
         static let StatusCell = "StatusCellID"
+    }
+    
+    func tableViewSelectionDidChange(_ notification: Notification) {
+        //updateStatus()
+        print("what it is")
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
